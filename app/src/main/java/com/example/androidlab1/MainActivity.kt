@@ -4,22 +4,44 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.androidlab1.ui.theme.AndroidLab1Theme
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.androidlab1.view.NormalScreen
+import com.example.androidlab1.view.SecurityAlertScreen
+import com.example.androidlab1.viewmodel.MainViewModel
+import com.example.androidlab1.viewmodel.SecurityUiState
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
 
+        enableEdgeToEdge()
+
+        setContent {
+            MainScreen()
         }
     }
 }
 
+@Composable
+fun MainScreen(
+    viewModel: MainViewModel = viewModel()
+) {
+    val uiState by viewModel.uiState.collectAsState()
+
+    when (val state = uiState) {
+        SecurityUiState.Normal -> {
+            NormalScreen()
+        }
+
+        is SecurityUiState.SecurityAlert -> {
+            SecurityAlertScreen(
+                confidenceScore = state.confidenceScore,
+                rawComment = state.rawComment
+            )
+        }
+    }
+}

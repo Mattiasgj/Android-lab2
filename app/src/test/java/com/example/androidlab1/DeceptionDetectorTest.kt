@@ -1,17 +1,35 @@
 package com.example.androidlab1
 
+import com.example.androidlab1.model.DeceptionDetector
+import com.example.androidlab1.model.RetrofitClient
+import kotlinx.coroutines.test.runTest
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
-import org.junit.Assert.*
+class DeceptionDetectorTest {
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
-class ExampleUnitTest {
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun fetchCommentsAndValidate() = runTest {
+
+        val apiKey = BuildConfig.API_KEY
+        val detector = DeceptionDetector()
+
+        // Fetch comments from PR #1
+        val comments = RetrofitClient.fetchGitService.getPullRequestComments(
+            issueNumber = 1,
+            token = "Bearer $apiKey"
+        )
+
+        // Validate every comment
+        for (comment in comments) {
+
+            val score = detector.validatePullComments(comment.body)
+
+            println("Comment: ${comment.body}")
+            println("Confidence score: $score")
+        }
+
+        // Make sure we actually received comments
+        assertTrue(comments.isNotEmpty())
     }
 }
