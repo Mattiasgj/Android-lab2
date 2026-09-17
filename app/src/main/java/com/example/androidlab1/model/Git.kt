@@ -9,3 +9,8 @@ data class PullRequestComment(
 data class User(
     val login: String
 )
+
+data class PullRequest(
+    val id: Long,
+    val number: Int,
+)

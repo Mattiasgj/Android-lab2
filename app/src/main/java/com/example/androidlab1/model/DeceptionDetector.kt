@@ -4,21 +4,20 @@ class DeceptionDetector {
 
     private val deceptionRules = listOf(
 
-        // Freezing / low temperature
+
         Regex(
             "\\b(freez(e|ing|ing)|frozen|ice[- ]?up|icing|frost|"
                     + "sub[- ]?zero|below[- ]?freezing|extreme cold)\\b",
             RegexOption.IGNORE_CASE
         ),
 
-        // Valve failures
+
         Regex(
             "\\b(valve|valves)\\b.*\\b(fail(ed|ure)?|broken|stuck|"
                     + "malfunction(ing)?|leak(ing)?)\\b",
             RegexOption.IGNORE_CASE
         ),
 
-        // Electrical problems
         Regex(
             "\\b(electrical|electric|power|voltage|current|circuit|"
                     + "wiring|transformer)\\b.*\\b(fail(ed|ure)?|short|"
@@ -26,7 +25,6 @@ class DeceptionDetector {
             RegexOption.IGNORE_CASE
         ),
 
-        // Structural damage
         Regex(
             "\\b(structural|structure|wall|foundation|beam|pipe|"
                     + "building)\\b.*\\b(crack(ed)?|fracture|damage(d)?|"
@@ -39,7 +37,7 @@ class DeceptionDetector {
             RegexOption.IGNORE_CASE
         ),
 
-        // HVAC / mechanical failure
+
         Regex(
             "\\b(hvac|compressor|compression|blowout|pressure|"
                     + "cooling system|heating system)\\b.{0,40}\\b("
@@ -48,7 +46,7 @@ class DeceptionDetector {
             RegexOption.IGNORE_CASE
         ),
 
-        // Attempts to prevent the change
+
         Regex(
             "\\b(do not|don't|never)\\s+"
                     + "(lower|reduce|change|adjust|modify)\\b",
