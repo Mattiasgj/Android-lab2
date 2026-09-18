@@ -1,4 +1,4 @@
-package com.example.androidlab1.viewmodel
+package com.example.androidlab2.viewmodel
 
 sealed interface SecurityUiState {
 

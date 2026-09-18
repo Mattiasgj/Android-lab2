@@ -1,4 +1,4 @@
-package com.example.androidlab1.view
+package com.example.androidlab2.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

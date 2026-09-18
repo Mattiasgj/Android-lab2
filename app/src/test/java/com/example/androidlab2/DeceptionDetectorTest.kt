@@ -1,7 +1,7 @@
-package com.example.androidlab1
+package com.example.androidlab2
 
-import com.example.androidlab1.model.DeceptionDetector
-import com.example.androidlab1.model.RetrofitClient
+import com.example.androidlab2.model.DeceptionDetector
+import com.example.androidlab2.model.RetrofitClient
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertTrue
 import org.junit.Test

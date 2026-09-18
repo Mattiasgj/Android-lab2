@@ -1,4 +1,4 @@
-package com.example.androidlab1.model
+package com.example.androidlab2.model
 
 class DeceptionDetector {
 

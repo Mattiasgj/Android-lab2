@@ -1,10 +1,10 @@
-package com.example.androidlab1.viewmodel
+package com.example.androidlab2.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.androidlab1.BuildConfig
-import com.example.androidlab1.model.DeceptionDetector
-import com.example.androidlab1.model.RetrofitClient
+import com.example.androidlab2.BuildConfig
+import com.example.androidlab2.model.DeceptionDetector
+import com.example.androidlab2.model.RetrofitClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,6 +18,13 @@ import kotlin.time.Duration.Companion.milliseconds
 
 class MainViewModel : ViewModel() {
 
+    fun forceMerge(){
+
+    }
+
+    fun forceReject(){
+
+    }
     private val detector = DeceptionDetector()
 
     private val _uiState =

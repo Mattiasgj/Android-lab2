@@ -1,4 +1,4 @@
-package com.example.androidlab1.model
+package com.example.androidlab2.model
 
 import retrofit2.http.GET
 import retrofit2.http.Header

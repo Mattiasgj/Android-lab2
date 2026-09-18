@@ -1,4 +1,4 @@
-package com.example.androidlab1.model
+package com.example.androidlab2.model
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -6,7 +6,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.create
 
 object RetrofitClient {
     private const val BASE_URL = "https://api.github.com/"

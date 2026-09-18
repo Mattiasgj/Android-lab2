@@ -1,4 +1,4 @@
-package com.example.androidlab1
+package com.example.androidlab2
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,10 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.androidlab1.view.NormalScreen
-import com.example.androidlab1.view.SecurityAlertScreen
-import com.example.androidlab1.viewmodel.MainViewModel
-import com.example.androidlab1.viewmodel.SecurityUiState
+import com.example.androidlab2.view.NormalScreen
+import com.example.androidlab2.view.SecurityAlertScreen
+import com.example.androidlab2.viewmodel.MainViewModel
+import com.example.androidlab2.viewmodel.SecurityUiState
 
 class MainActivity : ComponentActivity() {
 
